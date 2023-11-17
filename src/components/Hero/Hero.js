@@ -4,11 +4,26 @@ import styled from 'styled-components/macro';
 const Hero = () => {
   return (
     <Wrapper>
-      <HeroImage src="/images/hero-img.jpg" />
-      <Swoop src="/swoop.svg" />
+      <picture>
+        <source
+          type="image/avif"
+          srcSet="/images/hero-img.avif 1x,
+                  /images/hero-img@2x.avif 2x,
+                  /images/hero-img@3x.avif 3x"
+        />
+        <source
+          type="image/jpeg"
+          srcset="/images/hero-img.jpg 1x,
+               /images/hero-img@2x.jpg 2x,
+               /images/hero-img@3x.jpg 3x"
+        />
+        <HeroImage alt="An example of the photos distributed through this site (cat on black background)" src="/images/hero-img.jpg"/>
+      </picture>
+      <Swoop src="/swoop.svg" alt="" />
     </Wrapper>
   );
 };
+
 
 const Wrapper = styled.section`
   position: relative;
@@ -18,13 +33,16 @@ const Wrapper = styled.section`
   justify-content: center;
   align-items: flex-end;
   background: hsl(0deg 0% 1%);
+  overflow: hidden;
 `;
 
+
 const HeroImage = styled.img`
-  display: block;
-  width: 500px;
-  height: 500px;
-  max-height: 100%;
+  display: inherit;
+  width: inherit;
+  height: inherit;
+  max-height: inherit;
+  object-fit: contain;
 `;
 
 const Swoop = styled.img`

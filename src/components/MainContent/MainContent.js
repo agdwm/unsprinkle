@@ -16,7 +16,7 @@ const MainContent = () => {
         <PhotoGridItem
           key={id}
           id={id}
-          src={src}
+          src={src.replace('.jpg', '@2x.avif')}
           alt={alt}
           tags={tags}
         />
