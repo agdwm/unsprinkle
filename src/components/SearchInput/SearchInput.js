@@ -23,6 +23,7 @@ const Wrapper = styled.div`
   position: relative;
   min-width: 300px;
   height: 2em;
+  min-width: 0;
 `;
 
 const Input = styled.input`
